@@ -1,5 +1,6 @@
 window.onload = function (){
-    let lookupBtn = document.getElementById("lookup");
+    let lookupCtryBtn = document.getElementById("lookup-country");
+    let lookupCityBtn = document.getElementById("lookup-city");
     let xmlReq = new XMLHttpRequest();
     let result = document.getElementById("result");
     let country = document.getElementById("country");
@@ -9,11 +10,11 @@ window.onload = function (){
         result.innerHTML = output;
     });
 
-    lookupBtn.addEventListener('click', () => {
+    lookupCtryBtn.addEventListener('click', () => {
 
         let lookupQuery = 'world.php?country='+country.value;
         
-        fetch(searchQuery)
+        fetch(lookupQuery)
             .then(response => {
                 if (response.ok) {
                     xmlReq.open('GET',lookupQuery);
@@ -27,4 +28,23 @@ window.onload = function (){
                 }
             })
         })
+
+        lookupCityBtn.addEventListener('click', () => {
+
+            let lookupQuery = 'world.php?country='+ country.value + "&context=cities";
+            
+            fetch(lookupQuery)
+                .then(response => {
+                    if (response.ok) {
+                        xmlReq.open('GET',lookupQuery);
+                        xmlReq.send();
+                        return response.text()   
+                    } 
+                    else {
+                        let error = Promise.reject('An error has occured')
+                        console.log(error)
+                        return error
+                    }
+                })
+            })
 }
