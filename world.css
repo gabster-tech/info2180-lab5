@@ -1,1 +1,56 @@
 /* Add your own styles */
+body {
+    background-color: rgba(4, 61, 35, 0.68); 
+    display: grid; 
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+#earth {
+    width: 300px;
+    height: 300px;
+    background: url(world-bg.jpg);
+    border-radius: 50%;
+    background-size: 610px;
+    box-shadow: inset 8px 36px 80px 36px rgb(0, 0, 0), inset -6px 0 12px 4px rgba(255, 255, 255, 0.3);
+    animation-name: rotate;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 12s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    justify-self: center;
+}
+
+  @keyframes rotate {
+    from {
+      background-position: 0px 0px;
+    }
+    to {
+      background-position: 610px 0px;
+    }
+  }
+  @-webkit-keyframes rotate {
+    from {
+      background-position: 0px 0px;
+    }
+    to {
+      background-position: 610px 0px;
+    }
+  }
+
+
+main button{
+    background-color: rgb(6, 91, 85);
+    color: white;
+    border:none;
+    height: 30px; 
+}
+
+main input{
+    height: 30px;
+}
